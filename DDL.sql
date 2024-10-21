@@ -1,8 +1,8 @@
--- Creaci髇 de la base de datos adminSoftli
+-- Creaci贸n de la base de datos adminSoftli
 CREATE DATABASE adminSoftli;
 GO
 
--- Uso de la base de datos reci閚 creada
+-- Uso de la base de datos reci茅n creada
 USE adminSoftli;
 GO
 
@@ -34,7 +34,7 @@ CREATE TABLE usuarios (
 -- Tabla: empleados
 CREATE TABLE empleados (
     id_empleado INT PRIMARY KEY IDENTITY(1,1),
-    id_usuario INT FOREIGN KEY REFERENCES usuarios(id_usuario), -- Relaci髇 con tabla de usuarios
+    id_usuario INT FOREIGN KEY REFERENCES usuarios(id_usuario), -- Relaci贸n con tabla de usuarios
     nombre_empleado VARCHAR(100) NOT NULL,
     apellido_empleado VARCHAR(100),
     email_empleado VARCHAR(100) UNIQUE NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE servicios (
     nombre_servicio VARCHAR(100) NOT NULL,
     descripcion_servicio TEXT,
     precio DECIMAL(10,2),
-    recurrente BIT DEFAULT 0,  -- 0 = Compra 鷑ica, 1 = Mensual
+    recurrente BIT DEFAULT 0,  -- 0 = Compra 煤nica, 1 = Mensual
     frecuencia_recurrencia VARCHAR(50) DEFAULT 'Mensual',
     fecha_creacion DATETIME DEFAULT GETDATE()
 );
@@ -90,9 +90,9 @@ CREATE TABLE cotizaciones (
 CREATE TABLE detalle_cotizacion (
     id_detalle INT PRIMARY KEY IDENTITY(1,1),
     id_cotizacion INT FOREIGN KEY REFERENCES cotizaciones(id_cotizacion),
-    id_producto INT FOREIGN KEY REFERENCES productos(id_producto), -- Relaci髇 con productos
-    id_servicio INT FOREIGN KEY REFERENCES servicios(id_servicio), -- Relaci髇 con servicios
-    descripcion_personalizada TEXT,  -- Descripci髇 personalizada del servicio/producto
+    id_producto INT FOREIGN KEY REFERENCES productos(id_producto), -- Relaci贸n con productos
+    id_servicio INT FOREIGN KEY REFERENCES servicios(id_servicio), -- Relaci贸n con servicios
+    descripcion_personalizada TEXT,  -- Descripci贸n personalizada del servicio/producto
     cantidad INT NOT NULL,
     precio_unitario DECIMAL(10,2),
     total DECIMAL(10,2)
@@ -104,7 +104,7 @@ CREATE TABLE archivos (
     id_cotizacion INT FOREIGN KEY REFERENCES cotizaciones(id_cotizacion),
     id_cliente INT FOREIGN KEY REFERENCES clientes(id_cliente),
     id_usuario INT FOREIGN KEY REFERENCES usuarios(id_usuario),
-    tipo_archivo VARCHAR(50),  -- Ejemplo: Cotizaci髇, Orden de Compra, Factura
+    tipo_archivo VARCHAR(50),  -- Ejemplo: Cotizaci贸n, Orden de Compra, Factura
     nombre_archivo VARCHAR(255),
     ruta_archivo VARCHAR(255),
     fecha_subida DATETIME DEFAULT GETDATE()
@@ -137,7 +137,7 @@ CREATE TABLE interacciones (
     id_interaccion INT PRIMARY KEY IDENTITY(1,1),
     id_cliente INT FOREIGN KEY REFERENCES clientes(id_cliente),
     id_usuario INT FOREIGN KEY REFERENCES usuarios(id_usuario),
-    tipo_interaccion VARCHAR(50),  -- Ejemplo: Llamada, Email, Reuni髇
+    tipo_interaccion VARCHAR(50),  -- Ejemplo: Llamada, Email, Reuni贸n
     descripcion TEXT,
     fecha_interaccion DATETIME DEFAULT GETDATE()
 );
@@ -156,13 +156,24 @@ CREATE TABLE clientes_actividad (
 -- Tabla: quejas_sugerencias
 CREATE TABLE quejas_sugerencias (
     id_queja_sugerencia INT PRIMARY KEY IDENTITY(1,1),
-    id_cliente INT FOREIGN KEY REFERENCES clientes(id_cliente),  -- Relaci髇 con clientes
-    id_usuario INT FOREIGN KEY REFERENCES usuarios(id_usuario),  -- Relaci髇 con usuarios (si aplica)
+    id_cliente INT FOREIGN KEY REFERENCES clientes(id_cliente),  -- Relaci贸n con clientes
+    id_usuario INT FOREIGN KEY REFERENCES usuarios(id_usuario),  -- Relaci贸n con usuarios (si aplica)
     tipo VARCHAR(50) NOT NULL,  -- Ejemplo: Queja, Sugerencia
-    descripcion TEXT NOT NULL,  -- Descripci髇 de la queja o sugerencia
+    descripcion TEXT NOT NULL,  -- Descripci贸n de la queja o sugerencia
     fecha_registro DATETIME DEFAULT GETDATE(),
     estado VARCHAR(50) DEFAULT 'Pendiente',  -- Ejemplo: Pendiente, Resuelta, Ignorada
     comentarios_respuesta TEXT  -- Comentarios de la respuesta (si la hay)
+);
+
+CREATE TABLE empresas (
+    id_empresa INT PRIMARY KEY IDENTITY(1,1),
+    nombre_empresa VARCHAR(100) NOT NULL,
+    direccion_empresa VARCHAR(255),
+    telefono_empresa VARCHAR(20),
+    email_empresa VARCHAR(100),
+    fecha_creacion DATETIME DEFAULT GETDATE(),
+    id_cliente INT,  -- Relaci贸n con clientes
+    CONSTRAINT FK_empresas_clientes FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
 );
 
 
