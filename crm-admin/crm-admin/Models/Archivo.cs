@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace crm_admin.Models;
 
@@ -20,10 +21,10 @@ public partial class Archivo
     public string? RutaArchivo { get; set; }
 
     public DateTime? FechaSubida { get; set; }
-
+    [JsonIgnore]
     public virtual Cliente? IdClienteNavigation { get; set; }
-
+    [JsonIgnore]
     public virtual Cotizacione? IdCotizacionNavigation { get; set; }
-
+    [JsonIgnore]
     public virtual Usuario? IdUsuarioNavigation { get; set; }
 }

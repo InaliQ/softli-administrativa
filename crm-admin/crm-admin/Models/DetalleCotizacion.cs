@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace crm_admin.Models;
 
@@ -20,10 +21,10 @@ public partial class DetalleCotizacion
     public decimal? PrecioUnitario { get; set; }
 
     public decimal? Total { get; set; }
-
+    [JsonIgnore]
     public virtual Cotizacione? IdCotizacionNavigation { get; set; }
-
+    [JsonIgnore]
     public virtual Producto? IdProductoNavigation { get; set; }
-
+    [JsonIgnore]
     public virtual Servicio? IdServicioNavigation { get; set; }
 }

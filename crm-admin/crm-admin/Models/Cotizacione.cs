@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace crm_admin.Models;
 
@@ -22,16 +23,16 @@ public partial class Cotizacione
     public string? Estado { get; set; }
 
     public string? ArchivoCotizacion { get; set; }
-
+    [JsonIgnore]
     public virtual ICollection<AceptacionesCotizacion> AceptacionesCotizacions { get; set; } = new List<AceptacionesCotizacion>();
-
+    [JsonIgnore]
     public virtual ICollection<Archivo> Archivos { get; set; } = new List<Archivo>();
-
+    [JsonIgnore]
     public virtual ICollection<DetalleCotizacion> DetalleCotizacions { get; set; } = new List<DetalleCotizacion>();
-
+    [JsonIgnore]
     public virtual Cliente? IdClienteNavigation { get; set; }
-
+    [JsonIgnore]
     public virtual Usuario? IdUsuarioNavigation { get; set; }
-
+    [JsonIgnore]
     public virtual ICollection<OrdenesCompra> OrdenesCompras { get; set; } = new List<OrdenesCompra>();
 }
