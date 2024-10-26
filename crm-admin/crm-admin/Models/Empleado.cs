@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace crm_admin.Models;
 
@@ -20,6 +21,6 @@ public partial class Empleado
     public string? Puesto { get; set; }
 
     public DateTime? FechaContratacion { get; set; }
-
+    [JsonIgnore]
     public virtual Usuario? IdUsuarioNavigation { get; set; }
 }
