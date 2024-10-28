@@ -4526,11 +4526,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sergi\\source\\repos\\crm-admin\\crm-admin\\crm-admin.csproj",
+      "projectUniqueName": "C:\\CRM\\softli-administrativa\\crm-admin\\crm-admin\\crm-admin.csproj",
       "projectName": "crm-admin",
-      "projectPath": "C:\\Users\\sergi\\source\\repos\\crm-admin\\crm-admin\\crm-admin.csproj",
+      "projectPath": "C:\\CRM\\softli-administrativa\\crm-admin\\crm-admin\\crm-admin.csproj",
       "packagesPath": "C:\\Users\\sergi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sergi\\source\\repos\\crm-admin\\crm-admin\\obj\\",
+      "outputPath": "C:\\CRM\\softli-administrativa\\crm-admin\\crm-admin\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sergi\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OAJPCs8f4WU=",
+  "dgSpecHash": "rkK5bv56k4M=",
   "success": true,
-  "projectFilePath": "C:\\Users\\sergi\\source\\repos\\crm-admin\\crm-admin\\crm-admin.csproj",
+  "projectFilePath": "C:\\CRM\\softli-administrativa\\crm-admin\\crm-admin\\crm-admin.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sergi\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\sergi\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
